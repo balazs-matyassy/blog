@@ -21,7 +21,7 @@
     </tr>
     <tr>
         <th>Created</th>
-        <td data-th-if="${entry.created}"></td>
+        <td data-th-text="${#temporals.formatISO(entry.created)}"></td>
     </tr>
 </table>
 </body>
