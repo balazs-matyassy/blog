@@ -65,3 +65,11 @@ BlogController <-> BlogService <-> BlogRepository
 CrudRepository<Entry, Long>
 
 8. Constructor injection segítségével szúrjuk be az EntryRepository függőséget a BlogControllerbe.
+
+9. /uj (új bejegyzés létrehozása) endpoint
+adjuk hozzá egy új (bármilyen, lehet akár véletlenszerű is) bejegyzést a repository-hoz.
+
+repository.save(new Entry(...));
+
+10. frissítsük a / és /bejegyzesek/{id} endpointokat, hogy a repository-ból olvassanak
+(Emlékeztető: Service segítségével szebb lenne.)
