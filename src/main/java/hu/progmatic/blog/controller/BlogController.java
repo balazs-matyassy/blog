@@ -28,6 +28,7 @@ public class BlogController {
         entry.setTitle("Test Title");
         entry.setContent("Test Content");
         entry.setCreated(LocalDateTime.now());
+
         model.addAttribute("entry", entry);
 
         return "entry.html";
