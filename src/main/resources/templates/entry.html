@@ -5,6 +5,24 @@
     <title>Bejegyzés megtekintése</title>
 </head>
 <body>
-    <h4><span data-th-text="${id}"></span>. bejegyzés</h4>
+<h4>Bejegyzés megtekintése</h4>
+<table>
+    <tr>
+        <th>Id</th>
+        <td data-th-if="${entry.id}"></td>
+    </tr>
+    <tr>
+        <th>Id</th>
+        <td data-th-if="${entry.title}"></td>
+    </tr>
+    <tr>
+        <th>Id</th>
+        <td data-th-if="${entry.content}"></td>
+    </tr>
+    <tr>
+        <th>Id</th>
+        <td data-th-if="${entry.created}"></td>
+    </tr>
+</table>
 </body>
 </html>
