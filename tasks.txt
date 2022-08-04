@@ -1,0 +1,28 @@
+0. blog adatbázis létrehozása
+(szükség esetén az application.properties beállítása - gigapoli_progmatic / Progmatic2022!)
+
+
+1. oldalak (kontroller + view / Thymeleaf sablon) létrehozása
+
+hu.progmatic.controller packageben
+
+BlogController
+
+1.1
+/ (URL / ROUTE)
+index.html
+<h4>index.html</h4>
+
+1.2
+/uj
+new.html
+<h4>new.html</h4>
+
+2. bejegyzések oldal létrehozása
+/bejegyzesek/{id}
+entry.html
+<h4>1. bejegyzés</h4>
+
+@PathVariable
+Model model
+model.setAttribute
