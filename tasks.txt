@@ -26,3 +26,15 @@ entry.html
 @PathVariable
 Model model
 model.setAttribute
+
+3. Entry modell létrehozása
+hu.progmatic.model package-ben
+
+String title
+String content
+LocalDateTime created
+
+@Entity
++
+@Id
+@GeneratedValue
