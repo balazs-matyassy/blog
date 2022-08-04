@@ -25,7 +25,7 @@ entry.html
 
 @PathVariable
 Model model
-model.setAttribute
+model.addAttribute
 
 3. Entry modell létrehozása
 hu.progmatic.model package-ben
@@ -38,3 +38,30 @@ LocalDateTime created
 +
 @Id
 @GeneratedValue
+
+4. /bejegyzesek/{id} (egy bejegyzés megjelenítése)
+Entry entry = new Entry(...);
+model.addAttribute("entry", entry);
+
+Adjunk hozzá a modellhez egy kézzel létrehozott bejegyzést.
+Módosítsuk a new.html-t, hogy megjelenítse a modellben kapott bejegyzést.
+
+5. / URL (bejegyzések listázása)
+List<Entry> entries = new ArrayList<>();
+entries.add(...);
+model.addAttribute("entries", entries);
+
+Adjunk hozzá a modellhez egy kézzel létrehozott Entry listát.
+(Mi hozzuk létre a kontrollerben).
+Módosítsuk az index.html-t, hogy megjelenítse a modellben kapott listát.
+
+6. ÉRDEMES LENNE EGY BlogService-t létrehozni.
+(Lehet közvetlenül kontrollerből Repository-t használni, de nem szép.)
+
+Szép megoldás:
+BlogController <-> BlogService <-> BlogRepository
+
+7. EntryRepository-t hozzuk létre.
+CrudRepository<Entry, Long>
+
+8. Constructor injection segítségével szúrjuk be az EntryRepository függőséget a BlogControllerbe.
