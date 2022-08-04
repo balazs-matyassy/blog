@@ -2,9 +2,23 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>index.html</title>
+    <title>Összes bejegyzés</title>
 </head>
 <body>
-<h4>index.html</h4>
+<h4>Összes bejegyzés</h4>
+<table>
+    <tr>
+        <th>Id</th>
+        <th>Title</th>
+        <th>Content</th>
+        <th>Created</th>
+    </tr>
+    <tr data-th-each="entry: ${entries}">
+        <td data-th-text="${entry.id}"></td>
+        <td data-th-text="${entry.title}"></td>
+        <td data-th-text="${entry.content}"></td>
+        <td data-th-text="${entry.created}"></td>
+    </tr>
+</table>
 </body>
 </html>

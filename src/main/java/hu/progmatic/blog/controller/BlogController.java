@@ -7,12 +7,20 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 
 import java.time.LocalDateTime;
+import java.util.ArrayList;
+import java.util.List;
 
 @Controller
 public class BlogController {
 
     @GetMapping("/")
     public String listAllEntries(Model model) {
+        List<Entry> entries = new ArrayList<>();
+        entries.add(new Entry(1L, "Title 1.", "Content 1.", LocalDateTime.now()));
+        entries.add(new Entry(2L, "Title 2.", "Content 2.", LocalDateTime.now()));
+
+        model.addAttribute("entries", entries);
+
         return "index.html";
     }
 
