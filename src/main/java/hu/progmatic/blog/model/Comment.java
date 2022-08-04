@@ -2,36 +2,33 @@ package hu.progmatic.blog.model;
 
 import javax.persistence.*;
 import java.time.LocalDateTime;
-import java.util.List;
 
 @Entity
-public class Entry {
-
+public class Comment {
     @Id
     @GeneratedValue
     private Long id;
 
-    private String title;
+    @ManyToOne()
+    @JoinColumn(name = "entry_id", nullable = false)
+    private Entry entry;
 
     private String content;
 
     private LocalDateTime created;
 
-    @OneToMany(mappedBy = "entry", cascade = CascadeType.ALL)
-    private List<Comment> comments;
-
-    public Entry() {
+    public Comment() {
     }
 
-    public Entry(String title, String content, LocalDateTime created) {
-        this.title = title;
+    public Comment(Entry entry, String content, LocalDateTime created) {
+        this.entry = entry;
         this.content = content;
         this.created = created;
     }
 
-    public Entry(Long id, String title, String content, LocalDateTime created) {
+    public Comment(Long id, Entry entry, String content, LocalDateTime created) {
         this.id = id;
-        this.title = title;
+        this.entry = entry;
         this.content = content;
         this.created = created;
     }
@@ -44,12 +41,12 @@ public class Entry {
         return id;
     }
 
-    public String getTitle() {
-        return title;
+    public Entry getEntry() {
+        return entry;
     }
 
-    public void setTitle(String title) {
-        this.title = title;
+    public void setEntry(Entry entry) {
+        this.entry = entry;
     }
 
     public String getContent() {
@@ -66,13 +63,5 @@ public class Entry {
 
     public void setCreated(LocalDateTime created) {
         this.created = created;
-    }
-
-    public List<Comment> getComments() {
-        return comments;
-    }
-
-    public void setComments(List<Comment> comments) {
-        this.comments = comments;
     }
 }
