@@ -2,6 +2,7 @@ package hu.progmatic.blog.model;
 
 import javax.persistence.*;
 import java.time.LocalDateTime;
+import java.util.ArrayList;
 import java.util.List;
 
 @Entity
@@ -17,8 +18,9 @@ public class Entry {
 
     private LocalDateTime created;
 
+    // one entry to many comments (egy bejegyzés sok kommenthez tartozhat)
     @OneToMany(mappedBy = "entry", cascade = CascadeType.ALL)
-    private List<Comment> comments;
+    private List<Comment> comments = new ArrayList<>();
 
     public Entry() {
     }

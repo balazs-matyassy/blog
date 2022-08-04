@@ -1,5 +1,6 @@
 package hu.progmatic.blog.controller;
 
+import hu.progmatic.blog.model.Comment;
 import hu.progmatic.blog.model.Entry;
 import hu.progmatic.blog.repository.EntryRepository;
 import org.springframework.stereotype.Controller;
@@ -35,6 +36,8 @@ public class BlogController {
     @GetMapping("/uj")
     public String createEntry(Model model) {
         Entry entry = new Entry("Test Title", "Test Content", LocalDateTime.now());
+        entry.getComments().add(new Comment(entry, "Test Content 1.", LocalDateTime.now()));
+        entry.getComments().add(new Comment(entry, "Test Content 2.", LocalDateTime.now()));
         entryRepository.save(entry);
 
         return "new.html";

@@ -9,7 +9,9 @@ public class Comment {
     @GeneratedValue
     private Long id;
 
+    // many comments to one entry (egy bejegyzéshez sok komment tartozhat)
     @ManyToOne()
+    // idegen kulcs beállítása (mi legyen az oszlop neve?)
     @JoinColumn(name = "entry_id", nullable = false)
     private Entry entry;
 
